@@ -6,44 +6,35 @@ import java.util.Scanner;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        int num1 = 0;
-        int num2 =0;
-
-    System.out.println("작성자 이름: 성종민, 나이: 27살");
+        int maxNumber = getMaxFromUser();
+        System.out.println("더 큰 숫자: " + maxNumber);
 
 
-    System.out.println("\t< 가능 옵션>");
-    System.out.println("1: 두 수의 합 구하기\n2: 더 큰 숫자 출력하기");
-    System.out.println("원하는 기능에 숫자를 입력하고 enter를 눌러 주세요");
-
-    Scanner sc = new Scanner(System.in);
-    String userNum = sc.nextLine();
-
-    System.out.println("입력한 옵션 값은:" + userNum);
-    System.out.println("숫자 2개를 입력해 주세요");
-    switch (userNum){
-
-        case "1":
-           num1 = scanNumber();
-           num2 = scanNumber();
-           System.out.println("두 숫자의 합은" + (num1 + num2));
-           break;
-        case "2":
-            num1 = scanNumber();
-            num2 = scanNumber();
-            System.out.println("두 숫자중 더 큰 값은" + Math. max(num1, num2));
-            break;
-
-            default: System.out.println("입력된 옵션 값이 이상합니다.");
+        int sumNumber = getSumFromUser();
+        System.out.println("두 숫자의 합: " + sumNumber);
     }
-        System.out.println("\n프로그램을 종료합니다. \n");
 
+    public static int getSumFromUser() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("첫 번째 숫자를 입력하세요: ");
+        int num1 = scanner.nextInt();
+        System.out.print("두 번째 숫자를 입력하세요: ");
+        int num2 = scanner.nextInt();
+
+        return num1 + num2;
     }
-    private static int scanNumber(){
 
-        Scanner sc = new Scanner(System.in);
-        String userNum = sc.nextLine();
-        return  Integer.parseInt(userNum);
+    public static int getMaxFromUser() {
+        Scanner scanner = new Scanner(System.in);
 
+        // 사용자에게 두 숫자를 입력받기
+        System.out.print("첫 번째 숫자를 입력하세요: ");
+        int num1 = scanner.nextInt();
+        System.out.print("두 번째 숫자를 입력하세요: ");
+        int num2 = scanner.nextInt();
+
+        // 더 큰 숫자 반환
+        return Math.max(num1, num2);
     }
 }
